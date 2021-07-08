@@ -1,4 +1,4 @@
-FROM node:15.8.0-alpine3.11
+FROM node:16.4.2-alpine3.11
 
 ENV KUBE_VERSION=1.20.2
 ENV HELM_VERSION=3.5.1
