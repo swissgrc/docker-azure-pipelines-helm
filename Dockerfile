@@ -9,8 +9,8 @@ RUN apk add --no-cache --virtual .pipeline-deps readline linux-pam \
   && chmod +x /usr/local/bin/kubectl \
   && wget -q https://get.helm.sh/helm-v${HELM_VERSION}-linux-amd64.tar.gz -O - | tar -xzO linux-amd64/helm > /usr/local/bin/helm \
   && chmod +x /usr/local/bin/helm \
-  && apk del .pipeline-deps
-  && kubectl version
+  && apk del .pipeline-deps \
+  && kubectl version \
   && helm version
 
 LABEL "com.azure.dev.pipelines.agent.handler.node.path"="/usr/local/bin/node"
