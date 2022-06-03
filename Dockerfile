@@ -1,5 +1,13 @@
 FROM node:16.13.0-alpine3.11
 
+LABEL org.opencontainers.image.vendor="Swiss GRC AG"
+LABEL org.opencontainers.image.authors="Swiss GRC AG <opensource@swissgrc.com>"
+LABEL org.opencontainers.image.title="azure-pipelines-helm"
+LABEL org.opencontainers.image.description="Docker image for running Helm commands in an Azure Pipelines container job"
+LABEL org.opencontainers.image.url="https://github.com/swissgrc/docker-azure-pipelines-helm"
+LABEL org.opencontainers.image.source="https://github.com/swissgrc/docker-azure-pipelines-helm"
+LABEL org.opencontainers.image.documentation="https://github.com/swissgrc/docker-azure-pipelines-helm"
+
 ENV KUBE_VERSION=1.20.2
 ENV HELM_VERSION=3.5.1
 
