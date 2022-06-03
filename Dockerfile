@@ -9,7 +9,7 @@ LABEL org.opencontainers.image.source="https://github.com/swissgrc/docker-azure-
 LABEL org.opencontainers.image.documentation="https://github.com/swissgrc/docker-azure-pipelines-helm"
 
 ENV KUBE_VERSION=1.20.2
-ENV HELM_VERSION=3.5.1
+ENV HELM_VERSION=3.9.0
 
 RUN apk add --no-cache --virtual .pipeline-deps readline linux-pam \
   && apk add bash sudo shadow \
