@@ -1,4 +1,4 @@
-FROM node:16.15.0-buster-slim
+FROM debian:buster-slim
 
 LABEL org.opencontainers.image.vendor="Swiss GRC AG"
 LABEL org.opencontainers.image.authors="Swiss GRC AG <opensource@swissgrc.com>"
@@ -7,9 +7,6 @@ LABEL org.opencontainers.image.description="Docker image for running Helm comman
 LABEL org.opencontainers.image.url="https://github.com/swissgrc/docker-azure-pipelines-helm"
 LABEL org.opencontainers.image.source="https://github.com/swissgrc/docker-azure-pipelines-helm"
 LABEL org.opencontainers.image.documentation="https://github.com/swissgrc/docker-azure-pipelines-helm"
-
-# Required for Azure Pipelines Container Jobs
-LABEL "com.azure.dev.pipelines.agent.handler.node.path"="/usr/local/bin/node"
 
 # Kubectl
 
@@ -36,5 +33,3 @@ RUN apt update -y && \
   apt clean all && \
   # Smoke test
   helm version
-
-CMD [ "node" ]
