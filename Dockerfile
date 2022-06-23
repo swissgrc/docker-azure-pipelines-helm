@@ -12,9 +12,11 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 # renovate: datasource=github-tags depName=kubernetes/kubernetes extractVersion=^v(?<version>.*)$
 ENV KUBE_VERSION=1.24.2
+# renovate: datasource=repology depName=debian_11/wget2 versioning=loose
+ENV WGET_VERSION=1.21-1+deb11u1
 
 RUN apt-get update -y && \
-  apt-get install -y wget && \
+  apt-get install -y wget=${WGET_VERSION} && \
   wget -q https://storage.googleapis.com/kubernetes-release/release/v${KUBE_VERSION}/bin/linux/amd64/kubectl -O /usr/local/bin/kubectl && \
   chmod +x /usr/local/bin/kubectl && \
   apt-get clean && \
@@ -27,11 +29,7 @@ RUN apt-get update -y && \
 # renovate: datasource=github-tags depName=helm/helm extractVersion=^v(?<version>.*)$
 ENV HELM_VERSION=3.9.0
 
-RUN apt-get update -y && \
-  apt-get install -y wget && \
-  wget -q https://get.helm.sh/helm-v${HELM_VERSION}-linux-amd64.tar.gz -O - | tar -xzO linux-amd64/helm > /usr/local/bin/helm && \
+RUN wget -q https://get.helm.sh/helm-v${HELM_VERSION}-linux-amd64.tar.gz -O - | tar -xzO linux-amd64/helm > /usr/local/bin/helm && \
   chmod +x /usr/local/bin/helm && \
-  apt-get clean && \
-  rm -rf /var/lib/apt/lists/* && \
   # Smoke test
   helm version
