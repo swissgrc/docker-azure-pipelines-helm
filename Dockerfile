@@ -14,7 +14,7 @@ LABEL "com.azure.dev.pipelines.agent.handler.node.path"="/usr/local/bin/node"
 # Kubectl
 
 # renovate: datasource=github-tags depName=kubernetes/kubernetes extractVersion=^v(?<version>.*)$
-ENV KUBE_VERSION=1.24.1
+ENV KUBE_VERSION=1.24.2
 
 RUN apt update -y && \
   apt install -y wget && \
