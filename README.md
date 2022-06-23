@@ -40,11 +40,13 @@ The following example shows the container used for a deployment step
 
 ### Tags
 
+<!-- markdownlint-disable MD013 -->
 | Tag      | Description                                                                             | Size                                                                                                                          |
 |----------|-----------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------|
 | latest   | Latest stable release (from `main` branch)                                              | ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/swissgrc/azure-pipelines-helm/latest?style=flat-square)   |
 | unstable | Latest unstable release (from `develop` branch)                                         | ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/swissgrc/azure-pipelines-helm/unstable?style=flat-square) |
 | 3.5.1    | [Helm 3.5.1](https://github.com/helm/helm/releases/tag/v3.5.1)                          | ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/swissgrc/azure-pipelines-helm/3.5.1?style=flat-square)    |
+<!-- markdownlint-restore -->
 
 ### Configuration
 
