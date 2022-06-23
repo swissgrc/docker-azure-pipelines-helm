@@ -13,6 +13,7 @@ LABEL "com.azure.dev.pipelines.agent.handler.node.path"="/usr/local/bin/node"
 
 # Kubectl
 
+# renovate: datasource=github-tags depName=kubernetes/kubernetes extractVersion=^v(?<version>.*)$
 ENV KUBE_VERSION=1.24.1
 
 RUN apt update -y && \
@@ -25,6 +26,7 @@ RUN apt update -y && \
 
 # Helm
 
+# renovate: datasource=github-tags depName=helm/helm extractVersion=^v(?<version>.*)$
 ENV HELM_VERSION=3.9.0
 
 RUN apt update -y && \
