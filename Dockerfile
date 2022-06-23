@@ -8,6 +8,9 @@ LABEL org.opencontainers.image.url="https://github.com/swissgrc/docker-azure-pip
 LABEL org.opencontainers.image.source="https://github.com/swissgrc/docker-azure-pipelines-helm"
 LABEL org.opencontainers.image.documentation="https://github.com/swissgrc/docker-azure-pipelines-helm"
 
+# Make sure to fail due to an error at any stage in shell pipes
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
 # Kubectl
 
 # renovate: datasource=github-tags depName=kubernetes/kubernetes extractVersion=^v(?<version>.*)$
