@@ -13,7 +13,7 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 # renovate: datasource=github-tags depName=kubernetes/kubernetes extractVersion=^v(?<version>.*)$
 ENV KUBE_VERSION=1.24.2
 # renovate: datasource=repology depName=debian_11/wget2 versioning=loose
-ENV WGET_VERSION=1.21-1+deb11u1
+ENV WGET_VERSION=1.99.1-2.2
 
 RUN apt-get update -y && \
   apt-get install -y wget=${WGET_VERSION} && \
