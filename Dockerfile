@@ -18,7 +18,7 @@ ENV CACERTIFICATES_VERSION=20210119
 ENV CURL_VERSION=7.74.0-1.3+deb11u1
 
 RUN apt-get update -y && \
-  apt-get install -y ca-certificates=${CACERTIFICATES_VERSION} curl=${CURL_VERSION} && \
+  apt-get install -y --no-install-recommends ca-certificates=${CACERTIFICATES_VERSION} curl=${CURL_VERSION} && \
   curl -o /usr/local/bin/kubectl https://storage.googleapis.com/kubernetes-release/release/v${KUBE_VERSION}/bin/linux/amd64/kubectl && \
   chmod +x /usr/local/bin/kubectl && \
   apt-get clean && \
