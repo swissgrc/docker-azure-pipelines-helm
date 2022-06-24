@@ -43,20 +43,23 @@ The following example shows the container used for a deployment step
 ### Tags
 
 <!-- markdownlint-disable MD013 -->
-| Tag      | Description                                                                             | Size                                                                                                                          |
-|----------|-----------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------|
-| latest   | Latest stable release (from `main` branch)                                              | ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/swissgrc/azure-pipelines-helm/latest?style=flat-square)   |
-| unstable | Latest unstable release (from `develop` branch)                                         | ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/swissgrc/azure-pipelines-helm/unstable?style=flat-square) |
-| 3.5.1    | [Helm 3.5.1](https://github.com/helm/helm/releases/tag/v3.5.1)                          | ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/swissgrc/azure-pipelines-helm/3.5.1?style=flat-square)    |
+| Tag      | Description                                                    | Base Image             | Helm  | Kubectl | Size                                                                                                                          |
+|----------|----------------------------------------------------------------|------------------------|-------|---------|-------------------------------------------------------------------------------------------------------------------------------|
+| latest   | Latest stable release (from `main` branch)                     | debian:11.3-slim       | 3.9.0 | 1.24.2  | ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/swissgrc/azure-pipelines-helm/latest?style=flat-square)   |
+| unstable | Latest unstable release (from `develop` branch)                | debian:11.3-slim       | 3.9.0 | 1.24.2  | ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/swissgrc/azure-pipelines-helm/unstable?style=flat-square) |
+| 3.5.1    | [Helm 3.5.1](https://github.com/helm/helm/releases/tag/v3.5.1) | node:15.8.0-alpine3.11 | 3.5.1 | 1.20.2  | ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/swissgrc/azure-pipelines-helm/3.5.1?style=flat-square)    |
+| 3.9.0    | [Helm 3.9.0](https://github.com/helm/helm/releases/tag/v3.9.0) | debian:11.3-slim       | 3.9.0 | 1.24.2  | ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/swissgrc/azure-pipelines-helm/3.9.0?style=flat-square)    |
 <!-- markdownlint-restore -->
 
 ### Configuration
 
 These environment variables are supported:
 
-| Environment variable | Default value | Description                |
-|----------------------|---------------|----------------------------|
-| KUBE_VERSION         | `1.20.2`      | Version of kubectl to use. |
-| HELM_VERSION         | `3.5.1`       | Version of Helm to use.    |
+| Environment variable   | Default value        | Description                                                      |
+|------------------------|----------------------|------------------------------------------------------------------|
+| KUBE_VERSION           | `1.24.2`             | Version of kubectl installed in the image.                       |
+| HELM_VERSION           | `3.9.0`              | Version of Helm installed in the image.                          |
+| CACERTIFICATES_VERSION | `20210119`           | Version of `ca-certificates` package used to install components. |
+| CURL_VERSION           | `7.74.0-1.3+deb11u1` | Version of `curl` package used to install components.            |
 
 [Azure Pipelines container jobs]: https://docs.microsoft.com/en-us/azure/devops/pipelines/process/container-phases
