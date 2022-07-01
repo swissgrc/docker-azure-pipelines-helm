@@ -1,4 +1,4 @@
-FROM debian:11.3-slim
+FROM swissgrc/azure-pipelines-azurecli:2.37.0
 
 LABEL org.opencontainers.image.vendor="Swiss GRC AG"
 LABEL org.opencontainers.image.authors="Swiss GRC AG <opensource@swissgrc.com>"
@@ -12,14 +12,8 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 # renovate: datasource=github-tags depName=kubernetes/kubernetes extractVersion=^v(?<version>.*)$
 ENV KUBE_VERSION=1.24.2
-# renovate: datasource=repology depName=debian_11/ca-certificates versioning=loose
-ENV CACERTIFICATES_VERSION=20210119
-# renovate: datasource=repology depName=debian_11/curl versioning=loose
-ENV CURL_VERSION=7.74.0-1.3+deb11u1
 
-RUN apt-get update -y && \
-  apt-get install -y --no-install-recommends ca-certificates=${CACERTIFICATES_VERSION} curl=${CURL_VERSION} && \
-  curl -o /usr/local/bin/kubectl https://storage.googleapis.com/kubernetes-release/release/v${KUBE_VERSION}/bin/linux/amd64/kubectl && \
+RUN curl -o /usr/local/bin/kubectl https://storage.googleapis.com/kubernetes-release/release/v${KUBE_VERSION}/bin/linux/amd64/kubectl && \
   chmod +x /usr/local/bin/kubectl && \
   apt-get clean && \
   rm -rf /var/lib/apt/lists/* && \
