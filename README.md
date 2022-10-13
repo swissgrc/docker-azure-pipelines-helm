@@ -54,7 +54,7 @@ The following example shows the container used for a deployment step
 | Tag      | Description                                                      | Base Image                                 | Helm   | Kubectl | Size                                                                                                                          |
 |----------|------------------------------------------------------------------|--------------------------------------------|--------|---------|-------------------------------------------------------------------------------------------------------------------------------|
 | latest   | Latest stable release (from `main` branch)                       | swissgrc/azure-pipelines-azurecli:2.40.0   | 3.10.1 | 1.25.2  | ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/swissgrc/azure-pipelines-helm/latest?style=flat-square)   |
-| unstable | Latest unstable release (from `develop` branch)                  | swissgrc/azure-pipelines-azurecli:2.40.0   | 3.10.1 | 1.25.2  | ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/swissgrc/azure-pipelines-helm/unstable?style=flat-square) |
+| unstable | Latest unstable release (from `develop` branch)                  | swissgrc/azure-pipelines-azurecli:2.40.0   | 3.10.1 | 1.25.3  | ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/swissgrc/azure-pipelines-helm/unstable?style=flat-square) |
 | 3.5.1    | [Helm 3.5.1](https://github.com/helm/helm/releases/tag/v3.5.1)   | node:15.8.0-alpine3.11                     | 3.5.1  | 1.20.2  | ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/swissgrc/azure-pipelines-helm/3.5.1?style=flat-square)    |
 | 3.9.0    | [Helm 3.9.0](https://github.com/helm/helm/releases/tag/v3.9.0)   | debian:11.3-slim                           | 3.9.0  | 1.24.2  | ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/swissgrc/azure-pipelines-helm/3.9.0?style=flat-square)    |
 | 3.9.1    | [Helm 3.9.1](https://github.com/helm/helm/releases/tag/v3.9.1)   | swissgrc/azure-pipelines-azurecli:2.38.0   | 3.9.1  | 1.24.3  | ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/swissgrc/azure-pipelines-helm/3.9.1?style=flat-square)    |
@@ -72,7 +72,7 @@ These environment variables are supported:
 
 | Environment variable   | Default value        | Description                                                      |
 |------------------------|----------------------|------------------------------------------------------------------|
-| KUBE_VERSION           | `1.25.2`             | Version of kubectl installed in the image.                       |
+| KUBE_VERSION           | `1.25.3`             | Version of kubectl installed in the image.                       |
 | HELM_VERSION           | `3.10.1`             | Version of Helm installed in the image.                          |
 
 [Azure Pipelines container jobs]: https://docs.microsoft.com/en-us/azure/devops/pipelines/process/container-phases
