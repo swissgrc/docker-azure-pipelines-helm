@@ -69,13 +69,4 @@ The following example shows the container used for a deployment step
 | 3.11.0   | [Helm 3.11.0](https://github.com/helm/helm/releases/tag/v3.11.0) | swissgrc/azure-pipelines-azurecli:2.44.1   | 3.11.0 | 1.26.1  | ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/swissgrc/azure-pipelines-helm/3.11.0?style=flat-square)   |
 <!-- markdownlint-restore -->
 
-### Configuration
-
-These environment variables are supported:
-
-| Environment variable   | Default value        | Description                                                      |
-|------------------------|----------------------|------------------------------------------------------------------|
-| KUBE_VERSION           | `1.26.1`             | Version of kubectl installed in the image.                       |
-| HELM_VERSION           | `3.11.1`             | Version of Helm installed in the image.                          |
-
 [Azure Pipelines container jobs]: https://docs.microsoft.com/en-us/azure/devops/pipelines/process/container-phases
