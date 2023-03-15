@@ -1,5 +1,5 @@
 # Base image containing dependencies used in builder and final image
-FROM swissgrc/azure-pipelines-azurecli:2.45.0 AS base
+FROM swissgrc/azure-pipelines-azurecli:2.46.0 AS base
 
 
 # Builder image
@@ -8,16 +8,16 @@ FROM base AS build
 # Make sure to fail due to an error at any stage in shell pipes
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
-#Disabled renovate: datasource=repology depName=debian_11/curl versioning=loose
-ENV CURL_VERSION=7.74.0-1.3+deb11u5
-#Disabled renovate: datasource=repology depName=debian_11/lsb-release versioning=loose
+# renovate: datasource=repology depName=debian_11/curl versioning=loose
+ENV CURL_VERSION=7.74.0-1.3+deb11u7
+# renovate: datasource=repology depName=debian_11/lsb-release versioning=loose
 ENV LSBRELEASE_VERSION=11.1.0
-#Disabled renovate: datasource=repology depName=debian_11/gnupg2 versioning=loose
+# renovate: datasource=repology depName=debian_11/gnupg2 versioning=loose
 ENV GNUPG_VERSION=2.2.27-2+deb11u2
 # renovate: datasource=github-tags depName=kubernetes/kubernetes extractVersion=^v(?<version>.*)$
-ENV KUBE_VERSION=1.26.1
+ENV KUBE_VERSION=1.26.2
 # renovate: datasource=github-tags depName=helm/helm extractVersion=^v(?<version>.*)$
-ENV HELM_VERSION=3.11.1
+ENV HELM_VERSION=3.11.2
 
 RUN apt-get update -y && \
   # Install necessary dependencies
@@ -46,7 +46,7 @@ COPY --from=build /tmp/ /tmp
 RUN cp /tmp/kubectl /usr/local/bin/kubectl && \
   chmod +x /usr/local/bin/kubectl && \
   # Smoke test
-  kubectl version --client
+  kubectl version --client --output=json
 
 # Helm
 RUN cp /tmp/helm /usr/local/bin/helm && \
