@@ -1,5 +1,5 @@
 # Base image containing dependencies used in builder and final image
-FROM swissgrc/azure-pipelines-azurecli:2.45.0 AS base
+FROM swissgrc/azure-pipelines-azurecli:2.46.0 AS base
 
 
 # Builder image
@@ -46,7 +46,7 @@ COPY --from=build /tmp/ /tmp
 RUN cp /tmp/kubectl /usr/local/bin/kubectl && \
   chmod +x /usr/local/bin/kubectl && \
   # Smoke test
-  kubectl version --client
+  kubectl version --client --output=json
 
 # Helm
 RUN cp /tmp/helm /usr/local/bin/helm && \
