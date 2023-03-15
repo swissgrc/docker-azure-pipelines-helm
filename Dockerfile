@@ -46,7 +46,7 @@ COPY --from=build /tmp/ /tmp
 RUN cp /tmp/kubectl /usr/local/bin/kubectl && \
   chmod +x /usr/local/bin/kubectl && \
   # Smoke test
-  kubectl version --client
+  kubectl version --client --output=json
 
 # Helm
 RUN cp /tmp/helm /usr/local/bin/helm && \
