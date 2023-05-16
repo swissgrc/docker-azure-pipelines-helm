@@ -1,5 +1,5 @@
 # Base image containing dependencies used in builder and final image
-FROM ghcr.io/swissgrc/azure-pipelines-azurecli:2.47.0 AS base
+FROM ghcr.io/swissgrc/azure-pipelines-azurecli:2.48.1 AS base
 
 
 # Builder image
@@ -15,9 +15,9 @@ ENV LSBRELEASE_VERSION=11.1.0
 # renovate: datasource=repology depName=debian_11/gnupg2 versioning=loose
 ENV GNUPG_VERSION=2.2.27-2+deb11u2
 # renovate: datasource=github-tags depName=kubernetes/kubernetes extractVersion=^v(?<version>.*)$
-ENV KUBE_VERSION=1.27.0
+ENV KUBE_VERSION=1.27.1
 # renovate: datasource=github-tags depName=helm/helm extractVersion=^v(?<version>.*)$
-ENV HELM_VERSION=3.11.3
+ENV HELM_VERSION=3.12.0
 
 RUN apt-get update -y && \
   # Install necessary dependencies
