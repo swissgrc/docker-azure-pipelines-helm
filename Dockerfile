@@ -17,7 +17,7 @@ ENV GNUPG_VERSION=2.2.27-2+deb11u2
 # renovate: datasource=github-tags depName=kubernetes/kubernetes extractVersion=^v(?<version>.*)$
 ENV KUBE_VERSION=1.27.4
 # renovate: datasource=github-tags depName=helm/helm extractVersion=^v(?<version>.*)$
-ENV HELM_VERSION=3.12.2
+ENV HELM_VERSION=3.12.3
 
 RUN apt-get update -y && \
   # Install necessary dependencies
