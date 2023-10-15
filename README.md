@@ -75,6 +75,7 @@ The following example shows the container used for a deployment step
 | 3.12.2   | [Helm 3.12.2](https://github.com/helm/helm/releases/tag/v3.12.2) | swissgrc/azure-pipelines-azurecli:2.50.0-net6 | 3.12.2 | 1.27.3  | ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/swissgrc/azure-pipelines-helm/3.12.2?style=flat-square)   |
 | 3.12.3   | [Helm 3.12.3](https://github.com/helm/helm/releases/tag/v3.12.3) | swissgrc/azure-pipelines-azurecli:2.51.0-net6 | 3.12.3 | 1.28.0  | ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/swissgrc/azure-pipelines-helm/3.12.3?style=flat-square)   |
 | 3.13.0   | [Helm 3.13.0](https://github.com/helm/helm/releases/tag/v3.13.0) | swissgrc/azure-pipelines-azurecli:2.53.0-net6 | 3.13.0 | 1.28.2  | ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/swissgrc/azure-pipelines-helm/3.13.0?style=flat-square)   |
+| 3.13.1   | [Helm 3.13.1](https://github.com/helm/helm/releases/tag/v3.13.1) | swissgrc/azure-pipelines-azurecli:2.53.0-net6 | 3.13.1 | 1.28.2  | ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/swissgrc/azure-pipelines-helm/3.13.1?style=flat-square)   |
 <!-- markdownlint-restore -->
 
 [Azure Pipelines container jobs]: https://docs.microsoft.com/en-us/azure/devops/pipelines/process/container-phases
