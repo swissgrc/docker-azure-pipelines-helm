@@ -9,7 +9,7 @@ FROM base AS build
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 # renovate: datasource=repology depName=debian_11/curl versioning=loose
-ENV CURL_VERSION=7.74.0-1.3+deb11u7
+ENV CURL_VERSION=7.74.0-1.3+deb11u10
 # renovate: datasource=repology depName=debian_11/lsb-release versioning=loose
 ENV LSBRELEASE_VERSION=11.1.0
 # renovate: datasource=repology depName=debian_11/gnupg2 versioning=loose
@@ -17,7 +17,7 @@ ENV GNUPG_VERSION=2.2.27-2+deb11u2
 # renovate: datasource=github-tags depName=kubernetes/kubernetes extractVersion=^v(?<version>.*)$
 ENV KUBE_VERSION=1.28.2
 # renovate: datasource=github-tags depName=helm/helm extractVersion=^v(?<version>.*)$
-ENV HELM_VERSION=3.13.0
+ENV HELM_VERSION=3.13.1
 
 RUN apt-get update -y && \
   # Install necessary dependencies
