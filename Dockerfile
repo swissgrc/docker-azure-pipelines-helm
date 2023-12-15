@@ -15,7 +15,7 @@ ENV LSBRELEASE_VERSION=12.0-1
 # renovate: datasource=repology depName=debian_12/gnupg2 versioning=deb
 ENV GNUPG_VERSION=2.2.40-1.1
 # renovate: datasource=github-tags depName=kubernetes/kubernetes extractVersion=^v(?<version>.*)$
-ENV KUBE_VERSION=1.28.4
+ENV KUBE_VERSION=1.29.0
 # renovate: datasource=github-tags depName=helm/helm extractVersion=^v(?<version>.*)$
 ENV HELM_VERSION=3.13.2
 
