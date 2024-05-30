@@ -1,5 +1,5 @@
 # Base image containing dependencies used in builder and final image
-FROM ghcr.io/swissgrc/azure-pipelines-azurecli:2.60.0-net8 AS base
+FROM ghcr.io/swissgrc/azure-pipelines-azurecli:2.61.0-net8 AS base
 
 
 # Builder image
@@ -17,7 +17,7 @@ ENV GNUPG_VERSION=2.2.40-1.1
 # renovate: datasource=github-tags depName=kubernetes/kubernetes extractVersion=^v(?<version>.*)$
 ENV KUBE_VERSION=1.30.1
 # renovate: datasource=github-tags depName=helm/helm extractVersion=^v(?<version>.*)$
-ENV HELM_VERSION=3.15.0
+ENV HELM_VERSION=3.15.1
 
 RUN apt-get update -y && \
   # Install necessary dependencies
