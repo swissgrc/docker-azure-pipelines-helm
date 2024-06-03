@@ -25,7 +25,7 @@ RUN apt-get update -y && \
   # Download Kubectl
   curl -o /tmp/kubectl https://storage.googleapis.com/kubernetes-release/release/v${KUBE_VERSION}/bin/linux/amd64/kubectl  && \
   # Download Helm
-  curl -sL https://get.helm.sh/helm-v${HELM_VERSION}-linux-amd64.tar.gz | tar -xzO linux-amd64/helm > /tmp/helm
+  curl -sL --proto "=https" https://get.helm.sh/helm-v${HELM_VERSION}-linux-amd64.tar.gz | tar -xzO linux-amd64/helm > /tmp/helm
 
 
 # Final image
