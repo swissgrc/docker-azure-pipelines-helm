@@ -14,8 +14,6 @@ ENV CURL_VERSION=7.88.1-10+deb12u6
 ENV LSBRELEASE_VERSION=12.0-1
 # renovate: datasource=repology depName=debian_12/gnupg2 versioning=deb
 ENV GNUPG_VERSION=2.2.40-1.1
-# renovate: datasource=github-tags depName=kubernetes/kubernetes extractVersion=^v(?<version>.*)$
-ENV KUBE_VERSION=1.31.0
 # renovate: datasource=github-tags depName=helm/helm extractVersion=^v(?<version>.*)$
 ENV HELM_VERSION=3.15.4
 
@@ -25,8 +23,6 @@ RUN apt-get update -y && \
     curl=${CURL_VERSION} \
     gnupg=${GNUPG_VERSION} \
     lsb-release=${LSBRELEASE_VERSION} && \
-  # Download Kubectl
-  curl -o /tmp/kubectl https://storage.googleapis.com/kubernetes-release/release/v${KUBE_VERSION}/bin/linux/amd64/kubectl  && \
   # Download Helm
   curl -sL --proto "=https" https://get.helm.sh/helm-v${HELM_VERSION}-linux-amd64.tar.gz \
     | tar -xzO linux-amd64/helm > /tmp/helm
@@ -47,6 +43,9 @@ WORKDIR /
 COPY --from=build /tmp/ /tmp
 
 # Kubectl
+# renovate: datasource=github-tags depName=kubernetes/kubernetes extractVersion=^v(?<version>.*)$
+ENV KUBE_VERSION=1.31.0
+ADD https://storage.googleapis.com/kubernetes-release/release/v${KUBE_VERSION}/bin/linux/amd64/kubectl /tmp/kubectl
 RUN cp /tmp/kubectl /usr/local/bin/kubectl && \
   chmod +x /usr/local/bin/kubectl && \
   # Smoke test
