@@ -21,11 +21,15 @@ ENV HELM_VERSION=3.15.4
 
 RUN apt-get update -y && \
   # Install necessary dependencies
-  apt-get install -y --no-install-recommends curl=${CURL_VERSION} lsb-release=${LSBRELEASE_VERSION} gnupg=${GNUPG_VERSION} && \
+  apt-get install -y --no-install-recommends \
+    curl=${CURL_VERSION} \
+    gnupg=${GNUPG_VERSION} \
+    lsb-release=${LSBRELEASE_VERSION} && \
   # Download Kubectl
   curl -o /tmp/kubectl https://storage.googleapis.com/kubernetes-release/release/v${KUBE_VERSION}/bin/linux/amd64/kubectl  && \
   # Download Helm
-  curl -sL --proto "=https" https://get.helm.sh/helm-v${HELM_VERSION}-linux-amd64.tar.gz | tar -xzO linux-amd64/helm > /tmp/helm
+  curl -sL --proto "=https" https://get.helm.sh/helm-v${HELM_VERSION}-linux-amd64.tar.gz \
+    | tar -xzO linux-amd64/helm > /tmp/helm
 
 
 # Final image
