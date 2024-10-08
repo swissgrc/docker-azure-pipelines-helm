@@ -1,5 +1,5 @@
 # Base image containing dependencies used in builder and final image
-FROM ghcr.io/swissgrc/azure-pipelines-azurecli:2.64.0-net8 AS base
+FROM ghcr.io/swissgrc/azure-pipelines-azurecli:2.65.0-net8 AS base
 
 
 # Builder image
@@ -15,7 +15,7 @@ ENV LSBRELEASE_VERSION=12.0-1
 # renovate: datasource=repology depName=debian_12/gnupg2 versioning=deb
 ENV GNUPG_VERSION=2.2.40-1.1
 # renovate: datasource=github-tags depName=helm/helm extractVersion=^v(?<version>.*)$
-ENV HELM_VERSION=3.16.0
+ENV HELM_VERSION=3.16.1
 
 RUN apt-get update -y && \
   # Install necessary dependencies
