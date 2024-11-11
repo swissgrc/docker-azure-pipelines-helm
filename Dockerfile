@@ -1,5 +1,5 @@
 # Base image containing dependencies used in builder and final image
-FROM ghcr.io/swissgrc/azure-pipelines-azurecli:2.65.0-net8 AS base
+FROM ghcr.io/swissgrc/azure-pipelines-azurecli:2.66.0-net8 AS base
 
 
 # Builder image
@@ -9,13 +9,13 @@ FROM base AS build
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 # renovate: datasource=repology depName=debian_12/curl versioning=deb
-ENV CURL_VERSION=7.88.1-10+deb12u7
+ENV CURL_VERSION=7.88.1-10+deb12u8
 # renovate: datasource=repology depName=debian_12/lsb-release versioning=deb
 ENV LSBRELEASE_VERSION=12.0-1
 # renovate: datasource=repology depName=debian_12/gnupg2 versioning=deb
 ENV GNUPG_VERSION=2.2.40-1.1
 # renovate: datasource=github-tags depName=helm/helm extractVersion=^v(?<version>.*)$
-ENV HELM_VERSION=3.16.1
+ENV HELM_VERSION=3.16.2
 
 RUN apt-get update -y && \
   # Install necessary dependencies
@@ -44,8 +44,8 @@ COPY --from=build /tmp/ /tmp
 
 # Kubectl
 # renovate: datasource=github-tags depName=kubernetes/kubernetes extractVersion=^v(?<version>.*)$
-ENV KUBE_VERSION=1.31.0
-ADD https://storage.googleapis.com/kubernetes-release/release/v${KUBE_VERSION}/bin/linux/amd64/kubectl /tmp/kubectl
+ENV KUBE_VERSION=1.31.2
+ADD https://dl.k8s.io/release/v${KUBE_VERSION}/bin/linux/amd64/kubectl /tmp/kubectl
 RUN cp /tmp/kubectl /usr/local/bin/kubectl && \
   chmod +x /usr/local/bin/kubectl && \
   # Smoke test
