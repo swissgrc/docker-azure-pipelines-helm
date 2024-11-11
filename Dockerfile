@@ -44,8 +44,8 @@ COPY --from=build /tmp/ /tmp
 
 # Kubectl
 # renovate: datasource=github-tags depName=kubernetes/kubernetes extractVersion=^v(?<version>.*)$
-ENV KUBE_VERSION=1.31.0
-ADD https://storage.googleapis.com/kubernetes-release/release/v${KUBE_VERSION}/bin/linux/amd64/kubectl /tmp/kubectl
+ENV KUBE_VERSION=1.31.2
+ADD https://dl.k8s.io/release/v${KUBE_VERSION}/bin/linux/amd64/kubectl /tmp/kubectl
 RUN cp /tmp/kubectl /usr/local/bin/kubectl && \
   chmod +x /usr/local/bin/kubectl && \
   # Smoke test
