@@ -91,7 +91,7 @@ The following example shows the container used for a deployment step
 | 3.16.0   | [Helm 3.16.0](https://github.com/helm/helm/releases/tag/v3.16.0) | swissgrc/azure-pipelines-azurecli:2.64.0-net8 | 3.16.0 | 1.31.0  | ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/swissgrc/azure-pipelines-helm/3.16.0?style=flat-square)   |
 | 3.16.1   | [Helm 3.16.1](https://github.com/helm/helm/releases/tag/v3.16.1) | swissgrc/azure-pipelines-azurecli:2.65.0-net8 | 3.16.1 | 1.31.0  | ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/swissgrc/azure-pipelines-helm/3.16.1?style=flat-square)   |
 | 3.16.2   | [Helm 3.16.2](https://github.com/helm/helm/releases/tag/v3.16.2) | swissgrc/azure-pipelines-azurecli:2.66.0-net8 | 3.16.2 | 1.31.2  | ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/swissgrc/azure-pipelines-helm/3.16.2?style=flat-square)   |
-| 3.16.3   | [Helm 3.16.2](https://github.com/helm/helm/releases/tag/v3.16.3) | swissgrc/azure-pipelines-azurecli:2.67.0-net8 | 3.16.3 | 1.31.2  | ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/swissgrc/azure-pipelines-helm/3.16.3?style=flat-square)   |
+| 3.16.3   | [Helm 3.16.3](https://github.com/helm/helm/releases/tag/v3.16.3) | swissgrc/azure-pipelines-azurecli:2.67.0-net8 | 3.16.3 | 1.31.2  | ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/swissgrc/azure-pipelines-helm/3.16.3?style=flat-square)   |
 | 3.16.4   | [Helm 3.16.4](https://github.com/helm/helm/releases/tag/v3.16.4) | swissgrc/azure-pipelines-azurecli:2.67.0-net9 | 3.16.4 | 1.32.0  | ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/swissgrc/azure-pipelines-helm/3.16.4?style=flat-square)   |
 <!-- markdownlint-restore -->
 
