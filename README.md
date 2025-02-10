@@ -10,14 +10,6 @@ Docker image to run Helm and kubectl commands in [Azure Pipelines container jobs
 
 This container can be used to run Helm and kubectl commands in [Azure Pipelines container jobs].
 
-The following software is additionally available in the image:
-
-| Software   | Included since |
-|------------|----------------|
-| Azure Cli  | 3.9.1          |
-| .NET       | 3.9.1          |
-| Docker CLI | 3.9.1          |
-
 ### Azure Pipelines Container Job
 
 To use the image in an Azure Pipelines Container Job add the following task use it with the `container` property.
@@ -49,6 +41,10 @@ The following example shows the container used for a deployment step
 ```
 
 ### Included Software
+- From Base Image
+  - Docker CLI
+  - .NET 9
+  - Azure CLI
 - Helm
 - Kubectl
 
