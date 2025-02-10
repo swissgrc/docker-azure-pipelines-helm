@@ -10,14 +10,6 @@ Docker image to run Helm and kubectl commands in [Azure Pipelines container jobs
 
 This container can be used to run Helm and kubectl commands in [Azure Pipelines container jobs].
 
-The following software is additionally available in the image:
-
-| Software   | Included since |
-|------------|----------------|
-| Azure Cli  | 3.9.1          |
-| .NET       | 3.9.1          |
-| Docker CLI | 3.9.1          |
-
 ### Azure Pipelines Container Job
 
 To use the image in an Azure Pipelines Container Job add the following task use it with the `container` property.
@@ -48,52 +40,22 @@ The following example shows the container used for a deployment step
                 waitForExecution: false
 ```
 
+### Included Software
+- From Base Image
+  - Docker CLI
+  - .NET 9
+  - Azure CLI
+- Helm
+- Kubectl
+
 ### Tags
 
 <!-- markdownlint-disable MD013 -->
-| Tag      | Description                                                      | Base Image                                    | Helm   | Kubectl | Size                                                                                                                          |
-|----------|------------------------------------------------------------------|-----------------------------------------------|--------|---------|-------------------------------------------------------------------------------------------------------------------------------|
-| latest   | Latest stable release (from `main` branch)                       | swissgrc/azure-pipelines-azurecli:2.68.0-net9 | 3.17.0 | 1.32.1  | ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/swissgrc/azure-pipelines-helm/latest?style=flat-square)   |
-| unstable | Latest unstable release (from `develop` branch)                  | swissgrc/azure-pipelines-azurecli:2.68.0-net9 | 3.17.0 | 1.32.1  | ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/swissgrc/azure-pipelines-helm/unstable?style=flat-square) |
-| 3.5.1    | [Helm 3.5.1](https://github.com/helm/helm/releases/tag/v3.5.1)   | node:15.8.0-alpine3.11                        | 3.5.1  | 1.20.2  | ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/swissgrc/azure-pipelines-helm/3.5.1?style=flat-square)    |
-| 3.9.0    | [Helm 3.9.0](https://github.com/helm/helm/releases/tag/v3.9.0)   | debian:11.3-slim                              | 3.9.0  | 1.24.2  | ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/swissgrc/azure-pipelines-helm/3.9.0?style=flat-square)    |
-| 3.9.1    | [Helm 3.9.1](https://github.com/helm/helm/releases/tag/v3.9.1)   | swissgrc/azure-pipelines-azurecli:2.38.0      | 3.9.1  | 1.24.3  | ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/swissgrc/azure-pipelines-helm/3.9.1?style=flat-square)    |
-| 3.9.2    | [Helm 3.9.2](https://github.com/helm/helm/releases/tag/v3.9.2)   | swissgrc/azure-pipelines-azurecli:2.38.0      | 3.9.2  | 1.24.3  | ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/swissgrc/azure-pipelines-helm/3.9.2?style=flat-square)    |
-| 3.9.2.1  | [Helm 3.9.2](https://github.com/helm/helm/releases/tag/v3.9.2)   | swissgrc/azure-pipelines-azurecli:2.39.0.1    | 3.9.2  | 1.24.3  | ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/swissgrc/azure-pipelines-helm/3.9.2.1?style=flat-square)  |
-| 3.9.3    | [Helm 3.9.3](https://github.com/helm/helm/releases/tag/v3.9.3)   | swissgrc/azure-pipelines-azurecli:2.39.0.1    | 3.9.3  | 1.24.3  | ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/swissgrc/azure-pipelines-helm/3.9.3?style=flat-square)    |
-| 3.9.4    | [Helm 3.9.4](https://github.com/helm/helm/releases/tag/v3.9.4)   | swissgrc/azure-pipelines-azurecli:2.39.0.1    | 3.9.4  | 1.25.0  | ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/swissgrc/azure-pipelines-helm/3.9.4?style=flat-square)    |
-| 3.10.0   | [Helm 3.10.0](https://github.com/helm/helm/releases/tag/v3.10.0) | swissgrc/azure-pipelines-azurecli:2.40.0      | 3.10.0 | 1.25.2  | ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/swissgrc/azure-pipelines-helm/3.10.0?style=flat-square)   |
-| 3.10.1   | [Helm 3.10.1](https://github.com/helm/helm/releases/tag/v3.10.1) | swissgrc/azure-pipelines-azurecli:2.40.0      | 3.10.1 | 1.25.2  | ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/swissgrc/azure-pipelines-helm/3.10.1?style=flat-square)   |
-| 3.10.2   | [Helm 3.10.2](https://github.com/helm/helm/releases/tag/v3.10.2) | swissgrc/azure-pipelines-azurecli:2.42.0      | 3.10.2 | 1.25.4  | ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/swissgrc/azure-pipelines-helm/3.10.2?style=flat-square)   |
-| 3.10.2   | [Helm 3.10.3](https://github.com/helm/helm/releases/tag/v3.10.3) | swissgrc/azure-pipelines-azurecli:2.43.0      | 3.10.3 | 1.26.0  | ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/swissgrc/azure-pipelines-helm/3.10.3?style=flat-square)   |
-| 3.11.0   | [Helm 3.11.0](https://github.com/helm/helm/releases/tag/v3.11.0) | swissgrc/azure-pipelines-azurecli:2.44.1      | 3.11.0 | 1.26.1  | ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/swissgrc/azure-pipelines-helm/3.11.0?style=flat-square)   |
-| 3.11.1   | [Helm 3.11.1](https://github.com/helm/helm/releases/tag/v3.11.1) | swissgrc/azure-pipelines-azurecli:2.45.0      | 3.11.1 | 1.26.1  | ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/swissgrc/azure-pipelines-helm/3.11.1?style=flat-square)   |
-| 3.11.2   | [Helm 3.11.2](https://github.com/helm/helm/releases/tag/v3.11.2) | swissgrc/azure-pipelines-azurecli:2.46.0      | 3.11.2 | 1.26.2  | ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/swissgrc/azure-pipelines-helm/3.11.2?style=flat-square)   |
-| 3.11.3   | [Helm 3.11.3](https://github.com/helm/helm/releases/tag/v3.11.3) | swissgrc/azure-pipelines-azurecli:2.47.0      | 3.11.3 | 1.27.0  | ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/swissgrc/azure-pipelines-helm/3.11.3?style=flat-square)   |
-| 3.12.0   | [Helm 3.12.0](https://github.com/helm/helm/releases/tag/v3.12.0) | swissgrc/azure-pipelines-azurecli:2.48.1      | 3.12.0 | 1.27.1  | ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/swissgrc/azure-pipelines-helm/3.12.0?style=flat-square)   |
-| 3.12.1   | [Helm 3.12.1](https://github.com/helm/helm/releases/tag/v3.12.1) | swissgrc/azure-pipelines-azurecli:2.50.0-net6 | 3.12.1 | 1.27.3  | ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/swissgrc/azure-pipelines-helm/3.12.1?style=flat-square)   |
-| 3.12.2   | [Helm 3.12.2](https://github.com/helm/helm/releases/tag/v3.12.2) | swissgrc/azure-pipelines-azurecli:2.50.0-net6 | 3.12.2 | 1.27.3  | ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/swissgrc/azure-pipelines-helm/3.12.2?style=flat-square)   |
-| 3.12.3   | [Helm 3.12.3](https://github.com/helm/helm/releases/tag/v3.12.3) | swissgrc/azure-pipelines-azurecli:2.51.0-net6 | 3.12.3 | 1.28.0  | ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/swissgrc/azure-pipelines-helm/3.12.3?style=flat-square)   |
-| 3.13.0   | [Helm 3.13.0](https://github.com/helm/helm/releases/tag/v3.13.0) | swissgrc/azure-pipelines-azurecli:2.53.0-net6 | 3.13.0 | 1.28.2  | ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/swissgrc/azure-pipelines-helm/3.13.0?style=flat-square)   |
-| 3.13.1   | [Helm 3.13.1](https://github.com/helm/helm/releases/tag/v3.13.1) | swissgrc/azure-pipelines-azurecli:2.53.0-net6 | 3.13.1 | 1.28.2  | ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/swissgrc/azure-pipelines-helm/3.13.1?style=flat-square)   |
-| 3.13.2   | [Helm 3.13.2](https://github.com/helm/helm/releases/tag/v3.13.2) | swissgrc/azure-pipelines-azurecli:2.53.1-net6 | 3.13.2 | 1.28.3  | ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/swissgrc/azure-pipelines-helm/3.13.2?style=flat-square)   |
-| 3.13.3   | [Helm 3.13.3](https://github.com/helm/helm/releases/tag/v3.13.3) | swissgrc/azure-pipelines-azurecli:2.55.0-net8 | 3.13.3 | 1.29.0  | ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/swissgrc/azure-pipelines-helm/3.13.3?style=flat-square)   |
-| 3.14.0   | [Helm 3.14.0](https://github.com/helm/helm/releases/tag/v3.14.0) | swissgrc/azure-pipelines-azurecli:2.56.0-net8 | 3.14.0 | 1.29.2  | ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/swissgrc/azure-pipelines-helm/3.14.0?style=flat-square)   |
-| 3.14.1   | [Helm 3.14.1](https://github.com/helm/helm/releases/tag/v3.14.1) | swissgrc/azure-pipelines-azurecli:2.57.0-net8 | 3.14.1 | 1.29.2  | ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/swissgrc/azure-pipelines-helm/3.14.1?style=flat-square)   |
-| 3.14.2   | [Helm 3.14.2](https://github.com/helm/helm/releases/tag/v3.14.2) | swissgrc/azure-pipelines-azurecli:2.57.0-net8 | 3.14.2 | 1.29.2  | ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/swissgrc/azure-pipelines-helm/3.14.2?style=flat-square)   |
-| 3.14.3   | [Helm 3.14.3](https://github.com/helm/helm/releases/tag/v3.14.3) | swissgrc/azure-pipelines-azurecli:2.58.0-net8 | 3.14.3 | 1.29.2  | ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/swissgrc/azure-pipelines-helm/3.14.3?style=flat-square)   |
-| 3.14.4   | [Helm 3.14.4](https://github.com/helm/helm/releases/tag/v3.14.4) | swissgrc/azure-pipelines-azurecli:2.59.0-net8 | 3.14.4 | 1.29.3  | ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/swissgrc/azure-pipelines-helm/3.14.4?style=flat-square)   |
-| 3.15.0   | [Helm 3.15.0](https://github.com/helm/helm/releases/tag/v3.15.0) | swissgrc/azure-pipelines-azurecli:2.60.0-net8 | 3.15.0 | 1.30.1  | ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/swissgrc/azure-pipelines-helm/3.15.0?style=flat-square)   |
-| 3.15.1   | [Helm 3.15.1](https://github.com/helm/helm/releases/tag/v3.15.1) | swissgrc/azure-pipelines-azurecli:2.61.0-net8 | 3.15.1 | 1.30.1  | ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/swissgrc/azure-pipelines-helm/3.15.1?style=flat-square)   |
-| 3.15.2   | [Helm 3.15.2](https://github.com/helm/helm/releases/tag/v3.15.2) | swissgrc/azure-pipelines-azurecli:2.62.0-net8 | 3.15.2 | 1.30.2  | ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/swissgrc/azure-pipelines-helm/3.15.2?style=flat-square)   |
-| 3.15.3   | [Helm 3.15.3](https://github.com/helm/helm/releases/tag/v3.15.3) | swissgrc/azure-pipelines-azurecli:2.62.0-net8 | 3.15.3 | 1.30.3  | ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/swissgrc/azure-pipelines-helm/3.15.3?style=flat-square)   |
-| 3.15.4   | [Helm 3.15.4](https://github.com/helm/helm/releases/tag/v3.15.4) | swissgrc/azure-pipelines-azurecli:2.63.0-net8 | 3.15.4 | 1.31.0  | ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/swissgrc/azure-pipelines-helm/3.15.4?style=flat-square)   |
-| 3.16.0   | [Helm 3.16.0](https://github.com/helm/helm/releases/tag/v3.16.0) | swissgrc/azure-pipelines-azurecli:2.64.0-net8 | 3.16.0 | 1.31.0  | ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/swissgrc/azure-pipelines-helm/3.16.0?style=flat-square)   |
-| 3.16.1   | [Helm 3.16.1](https://github.com/helm/helm/releases/tag/v3.16.1) | swissgrc/azure-pipelines-azurecli:2.65.0-net8 | 3.16.1 | 1.31.0  | ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/swissgrc/azure-pipelines-helm/3.16.1?style=flat-square)   |
-| 3.16.2   | [Helm 3.16.2](https://github.com/helm/helm/releases/tag/v3.16.2) | swissgrc/azure-pipelines-azurecli:2.66.0-net8 | 3.16.2 | 1.31.2  | ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/swissgrc/azure-pipelines-helm/3.16.2?style=flat-square)   |
-| 3.16.3   | [Helm 3.16.3](https://github.com/helm/helm/releases/tag/v3.16.3) | swissgrc/azure-pipelines-azurecli:2.67.0-net8 | 3.16.3 | 1.31.2  | ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/swissgrc/azure-pipelines-helm/3.16.3?style=flat-square)   |
-| 3.16.4   | [Helm 3.16.4](https://github.com/helm/helm/releases/tag/v3.16.4) | swissgrc/azure-pipelines-azurecli:2.67.0-net9 | 3.16.4 | 1.32.0  | ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/swissgrc/azure-pipelines-helm/3.16.4?style=flat-square)   |
-| 3.17.0   | [Helm 3.17.0](https://github.com/helm/helm/releases/tag/v3.17.0) | swissgrc/azure-pipelines-azurecli:2.68.0-net9 | 3.17.0 | 1.32.1  | ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/swissgrc/azure-pipelines-helm/3.17.0?style=flat-square)   |
+| Tag      | Description                                           | Size                                                                                                                          |
+|----------|-------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------|
+| latest   | Latest stable release (from `main` branch)            | ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/swissgrc/azure-pipelines-helm/latest?style=flat-square)   |
+| unstable | Latest unstable release (from `develop` branch)       | ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/swissgrc/azure-pipelines-helm/unstable?style=flat-square) |
+| x.y.z    | Image for a specific version of Helm                  |                                                                                                                               |
 <!-- markdownlint-restore -->
 
 [Azure Pipelines container jobs]: https://docs.microsoft.com/en-us/azure/devops/pipelines/process/container-phases
