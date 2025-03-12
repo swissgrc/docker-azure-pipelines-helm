@@ -44,7 +44,7 @@ COPY --from=build /tmp/ /tmp
 
 # Kubectl
 # renovate: datasource=github-tags depName=kubernetes/kubernetes extractVersion=^v(?<version>.*)$
-ENV KUBE_VERSION=1.32.2
+ENV KUBE_VERSION=1.32.3
 ADD https://dl.k8s.io/release/v${KUBE_VERSION}/bin/linux/amd64/kubectl /tmp/kubectl
 RUN cp /tmp/kubectl /usr/local/bin/kubectl && \
   chmod +x /usr/local/bin/kubectl && \
