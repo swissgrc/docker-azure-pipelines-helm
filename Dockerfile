@@ -40,7 +40,7 @@ RUN tar -xzf /tmp/helm.tar.gz -O linux-amd64/helm > /tmp/helm && \
   rm /tmp/helm.tar.gz
 
 # renovate: datasource=github-tags depName=Azure/kubelogin extractVersion=^v(?<version>.*)$
-ENV KUBELOGIN_VERSION=0.1.9
+ENV KUBELOGIN_VERSION=0.2.1
 
 # Download kubelogin
 ADD https://github.com/Azure/kubelogin/releases/download/v${KUBELOGIN_VERSION}/kubelogin-linux-amd64.zip /tmp/kubelogin.zip
