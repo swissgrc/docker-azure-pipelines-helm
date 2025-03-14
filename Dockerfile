@@ -14,19 +14,38 @@ ENV CURL_VERSION=7.88.1-10+deb12u8
 ENV LSBRELEASE_VERSION=12.0-1
 # renovate: datasource=repology depName=debian_12/gnupg2 versioning=deb
 ENV GNUPG_VERSION=2.2.40-1.1
-# renovate: datasource=github-tags depName=helm/helm extractVersion=^v(?<version>.*)$
-ENV HELM_VERSION=3.17.2
+# renovate: datasource=repology depName=debian_12/unzip versioning=deb
+ENV UNZIP_VERSION=6.0-28
 
+# Install necessary dependencies
 RUN apt-get update -y && \
-  # Install necessary dependencies
   apt-get install -y --no-install-recommends \
     curl=${CURL_VERSION} \
     gnupg=${GNUPG_VERSION} \
-    lsb-release=${LSBRELEASE_VERSION} && \
-  # Download Helm
-  curl -sL --proto "=https" https://get.helm.sh/helm-v${HELM_VERSION}-linux-amd64.tar.gz \
-    | tar -xzO linux-amd64/helm > /tmp/helm
+    lsb-release=${LSBRELEASE_VERSION} \
+    unzip=${UNZIP_VERSION}
 
+# renovate: datasource=github-tags depName=kubernetes/kubernetes extractVersion=^v(?<version>.*)$
+ENV KUBE_VERSION=1.32.3
+
+# Download kubectl
+ADD https://dl.k8s.io/release/v${KUBE_VERSION}/bin/linux/amd64/kubectl /tmp/kubectl
+
+# renovate: datasource=github-tags depName=helm/helm extractVersion=^v(?<version>.*)$
+ENV HELM_VERSION=3.17.2
+
+# Download Helm
+ADD https://get.helm.sh/helm-v${HELM_VERSION}-linux-amd64.tar.gz /tmp/helm.tar.gz
+RUN tar -xzf /tmp/helm.tar.gz -O linux-amd64/helm > /tmp/helm && \
+  rm /tmp/helm.tar.gz
+
+# renovate: datasource=github-tags depName=Azure/kubelogin extractVersion=^v(?<version>.*)$
+ENV KUBELOGIN_VERSION=0.1.9
+
+# Download kubelogin
+ADD https://github.com/Azure/kubelogin/releases/download/v${KUBELOGIN_VERSION}/kubelogin-linux-amd64.zip /tmp/kubelogin.zip
+RUN unzip -p /tmp/kubelogin.zip bin/linux_amd64/kubelogin > /tmp/kubelogin && \
+  rm /tmp/kubelogin.zip
 
 # Final image
 FROM base AS final
@@ -42,17 +61,18 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 WORKDIR /
 COPY --from=build /tmp/ /tmp
 
-# Kubectl
-# renovate: datasource=github-tags depName=kubernetes/kubernetes extractVersion=^v(?<version>.*)$
-ENV KUBE_VERSION=1.32.3
-ADD https://dl.k8s.io/release/v${KUBE_VERSION}/bin/linux/amd64/kubectl /tmp/kubectl
-RUN cp /tmp/kubectl /usr/local/bin/kubectl && \
+RUN \
+  # kubectl
+  cp /tmp/kubectl /usr/local/bin/kubectl && \
   chmod +x /usr/local/bin/kubectl && \
-  # Smoke test
-  kubectl version --client --output=json
-
-# Helm
-RUN cp /tmp/helm /usr/local/bin/helm && \
+  kubectl version --client --output=json && \
+  # Helm
+  cp /tmp/helm /usr/local/bin/helm && \
   chmod +x /usr/local/bin/helm && \
-  # Smoke test
-  helm version
+  helm version && \
+  # kubelogin
+  cp /tmp/kubelogin /usr/local/bin/kubelogin && \
+  chmod +x /usr/local/bin/kubelogin && \
+  kubelogin --version && \
+  # Cleanup
+  rm -rf /tmp/*
