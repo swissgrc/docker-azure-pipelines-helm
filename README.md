@@ -40,15 +40,12 @@ The following example shows the container used for a deployment step
                 waitForExecution: false
 ```
 
-### Included Software
-- From Base Image
-  - Docker CLI
-  - .NET 9
-  - Azure CLI
+## Included Software
+- [swissgrc/azure-pipelines-azurecli:net9](https://github.com/swissgrc/docker-azure-pipelines-azurecli-net9) as base image
 - Helm
 - Kubectl
 
-### Tags
+## Tags
 
 <!-- markdownlint-disable MD013 -->
 | Tag      | Description                                           | Size                                                                                                                          |

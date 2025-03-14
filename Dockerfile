@@ -1,5 +1,5 @@
 # Base image containing dependencies used in builder and final image
-FROM ghcr.io/swissgrc/azure-pipelines-azurecli:2.68.0-net9 AS base
+FROM ghcr.io/swissgrc/azure-pipelines-azurecli:2.70.0-net9 AS base
 
 
 # Builder image
@@ -15,7 +15,7 @@ ENV LSBRELEASE_VERSION=12.0-1
 # renovate: datasource=repology depName=debian_12/gnupg2 versioning=deb
 ENV GNUPG_VERSION=2.2.40-1.1
 # renovate: datasource=github-tags depName=helm/helm extractVersion=^v(?<version>.*)$
-ENV HELM_VERSION=3.17.1
+ENV HELM_VERSION=3.17.2
 
 RUN apt-get update -y && \
   # Install necessary dependencies
@@ -44,7 +44,7 @@ COPY --from=build /tmp/ /tmp
 
 # Kubectl
 # renovate: datasource=github-tags depName=kubernetes/kubernetes extractVersion=^v(?<version>.*)$
-ENV KUBE_VERSION=1.32.1
+ENV KUBE_VERSION=1.32.3
 ADD https://dl.k8s.io/release/v${KUBE_VERSION}/bin/linux/amd64/kubectl /tmp/kubectl
 RUN cp /tmp/kubectl /usr/local/bin/kubectl && \
   chmod +x /usr/local/bin/kubectl && \
