@@ -32,7 +32,7 @@ ENV KUBE_VERSION=1.33.1
 ADD https://dl.k8s.io/release/v${KUBE_VERSION}/bin/linux/amd64/kubectl /tmp/kubectl
 
 # renovate: datasource=github-tags depName=helm/helm extractVersion=^v(?<version>.*)$
-ENV HELM_VERSION=3.17.3
+ENV HELM_VERSION=3.18.0
 
 # Download Helm
 ADD https://get.helm.sh/helm-v${HELM_VERSION}-linux-amd64.tar.gz /tmp/helm.tar.gz
