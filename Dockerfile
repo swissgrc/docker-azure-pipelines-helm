@@ -1,5 +1,5 @@
 # Base image containing dependencies used in builder and final image
-FROM ghcr.io/swissgrc/azure-pipelines-azurecli:2.74.0-net9 AS base
+FROM ghcr.io/swissgrc/azure-pipelines-azurecli:2.76.0-net9 AS base
 
 
 # Builder image
@@ -26,13 +26,13 @@ RUN apt-get update -y && \
     unzip=${UNZIP_VERSION}
 
 # renovate: datasource=github-tags depName=kubernetes/kubernetes extractVersion=^v(?<version>.*)$
-ENV KUBE_VERSION=1.33.2
+ENV KUBE_VERSION=1.33.3
 
 # Download kubectl
 ADD https://dl.k8s.io/release/v${KUBE_VERSION}/bin/linux/amd64/kubectl /tmp/kubectl
 
 # renovate: datasource=github-tags depName=helm/helm extractVersion=^v(?<version>.*)$
-ENV HELM_VERSION=3.18.3
+ENV HELM_VERSION=3.18.4
 
 # Download Helm
 ADD https://get.helm.sh/helm-v${HELM_VERSION}-linux-amd64.tar.gz /tmp/helm.tar.gz
@@ -40,7 +40,7 @@ RUN tar -xzf /tmp/helm.tar.gz -O linux-amd64/helm > /tmp/helm && \
   rm /tmp/helm.tar.gz
 
 # renovate: datasource=github-tags depName=Azure/kubelogin extractVersion=^v(?<version>.*)$
-ENV KUBELOGIN_VERSION=0.2.9
+ENV KUBELOGIN_VERSION=0.2.10
 
 # Download kubelogin
 ADD https://github.com/Azure/kubelogin/releases/download/v${KUBELOGIN_VERSION}/kubelogin-linux-amd64.zip /tmp/kubelogin.zip
