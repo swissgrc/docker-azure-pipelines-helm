@@ -26,7 +26,7 @@ RUN apt-get update -y && \
     unzip=${UNZIP_VERSION}
 
 # renovate: datasource=github-tags depName=kubernetes/kubernetes extractVersion=^v(?<version>.*)$
-ENV KUBE_VERSION=1.33.3
+ENV KUBE_VERSION=1.33.4
 
 # Download kubectl
 ADD https://dl.k8s.io/release/v${KUBE_VERSION}/bin/linux/amd64/kubectl /tmp/kubectl
