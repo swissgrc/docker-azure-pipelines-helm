@@ -41,7 +41,7 @@ The following example shows the container used for a deployment step
 ```
 
 ## Included Software
-- [swissgrc/azure-pipelines-azurecli:net9](https://github.com/swissgrc/docker-azure-pipelines-azurecli-net9) as base image
+- [swissgrc/azure-pipelines-azurecli:net10](https://github.com/swissgrc/docker-azure-pipelines-azurecli-net10) as base image
 - Helm
 - kubectl
 - kubelogin
